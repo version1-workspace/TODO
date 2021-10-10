@@ -14,10 +14,10 @@ class Main extends Component {
 		this.removeClick = this.removeClick.bind(this);
 	}
 
-	submitClick(value){
+	submitClick(value, date){
 		const maxId = this.state.max_id;
 		const taskSet = this.state.taskset;
-		taskSet.push( { id: maxId+1, name: value } );
+		taskSet.push( { id: maxId+1, name: value, limit: date } );
 		
 		this.setState({
 			taskset: taskSet,
@@ -38,7 +38,7 @@ class Main extends Component {
 	render() {
 		return(
 			<div>
-				<Create sendTaskVal={this.submitClick} />
+				<Create sendTaskVal={this.submitClick} sendTaskLimit={this.submitClick} />
 				<TaskList taskData={this.state.taskset} remove2={this.removeClick} />
 			</div>
 		);
