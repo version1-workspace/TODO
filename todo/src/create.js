@@ -35,8 +35,8 @@ class Create extends Component {
 			return(false);
 		}
 		if( newtask !== '' && window.confirm('新しいタスクを登録しますか?') ){
-			this.props.sendTaskVal(newtask);
-			this.props.sendTaskLimit(limitdate);
+			console.log(this.props);
+			this.props.onSubmit(newtask, limitdate);
 			this.setState( { newtaskval: '' } );
 		}
 	}

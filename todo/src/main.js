@@ -38,7 +38,7 @@ class Main extends Component {
 	render() {
 		return(
 			<div>
-				<Create sendTaskVal={this.submitClick} sendTaskLimit={this.submitClick} />
+				<Create onSubmit={this.submitClick} />
 				<TaskList taskData={this.state.taskset} remove2={this.removeClick} />
 			</div>
 		);
