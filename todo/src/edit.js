@@ -11,7 +11,6 @@ class Create extends Component {
       ("0" + (date.getMonth() + 1)).slice(-2) +
       "/" +
       ("0" + date.getDate()).slice(-2);
-
     this.state = {
       newtaskval: "",
       limitdate: str,
@@ -45,11 +44,6 @@ class Create extends Component {
   }
 
   render() {
-    const edit = this.props.edit;
-    if (Object.keys(edit).length) {
-      console.log(edit);
-    }
-
     return (
       <form onSubmit={this.textSubmit}>
         <input
