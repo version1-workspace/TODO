@@ -1,7 +1,15 @@
 import React from "react";
 
 class MiddleTable extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input: [],
+    };
+  }
   render() {
+    const inputSerial = this.props.inputArray.serial;
     return (
       <div className="middleTable">
         <table>
@@ -12,7 +20,7 @@ class MiddleTable extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td>1</td>
+              <td>{inputSerial}</td>
             </tr>
           </tbody>
         </table>

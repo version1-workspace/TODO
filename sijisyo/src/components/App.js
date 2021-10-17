@@ -6,17 +6,28 @@ import MiddleTable from "./MiddleTable";
 import ResultTable from "./ResultTable";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input: [],
+    };
+  }
   render() {
     return (
       <div>
-        <InputForm />
+        <InputForm inputArray={this.handleChange} />
 
-        <MiddleTable />
+        <MiddleTable inputArray={this.state.input} />
 
         <ResultTable />
       </div>
     );
   }
+
+  handleChange = (array) => {
+    this.setState({ input: array });
+  };
 }
 
 export default App;

@@ -1,33 +1,50 @@
 import React from "react";
-import InputForm01Serial from "./InputForm01Serial";
 
 class InputForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      inputArray: [],
+      inputArray: {
+        serial: "",
+      },
     };
   }
   render() {
     return (
       <div className="inputForm">
-        <button>送信</button>
+        <button onClick={this.handleSubmit}>送信</button>
         <table>
           <tbody>
-            <InputForm01Serial serial={this.handleChange} />
+            <tr>
+              <th>通し番号</th>
+              <td>
+                <input
+                  type="text"
+                  value={this.state.inputArray.serial}
+                  onChange={this.handleChange}
+                />
+              </td>
+              <td>
+                <input type="checkbox" />
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     );
   }
 
-  handleChange = (value) => {
-    console.log(value);
+  handleChange = (e) => {
     const newArray = {
-      serial: value,
+      serial: e.currentTarget.value,
     };
     this.setState({ inputArray: newArray });
+  };
+
+  handleSubmit = () => {
+    const { inputArray } = this.props;
+    inputArray(this.state.inputArray);
   };
 }
 
