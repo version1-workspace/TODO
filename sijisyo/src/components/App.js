@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div>
         <InputForm form={input[index] || {}} onChange={this.handleChange} />
-        <ResultTable data={input[0]}/>
+        <ResultTable data={input[0] || {}}/>
       </div>
     );
   }
