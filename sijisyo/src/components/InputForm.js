@@ -1,28 +1,64 @@
 import React from "react";
 
 class InputForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      inputArray: {
-        serial: "",
-      },
-    };
-  }
   render() {
+    const { form } = this.props
+
     return (
       <div className="inputForm">
-        <button onClick={this.handleSubmit}>送信</button>
         <table>
           <tbody>
             <tr>
-              <th>通し番号</th>
+              <th>フィールド1</th>
               <td>
                 <input
                   type="text"
-                  value={this.state.inputArray.serial}
-                  onChange={this.handleChange}
+                  value={form.field1}
+                  onChange={(event) => {
+                    const newForm = {
+                      ...form,
+                      field1: event.target.value
+                    }
+                    this.props.onChange(newForm)
+                  }}
+                />
+              </td>
+              <td>
+                <input type="checkbox" />
+              </td>
+            </tr>
+            <tr>
+              <th>フィールド2</th>
+              <td>
+                <input
+                  type="text"
+                  value={form.field2}
+                  onChange={(event) => {
+                    const newForm = {
+                      ...form,
+                      field2: event.target.value
+                    }
+                    this.props.onChange(newForm)
+                  }}
+                />
+              </td>
+              <td>
+                <input type="checkbox" />
+              </td>
+            </tr>
+            <tr>
+              <th>フィールド3</th>
+              <td>
+                <input
+                  type="text"
+                  value={form.field3}
+                  onChange={(event) => {
+                    const newForm = {
+                      ...form,
+                      field3: event.target.value
+                    }
+                    this.props.onChange(newForm)
+                  }}
                 />
               </td>
               <td>

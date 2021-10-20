@@ -2,17 +2,24 @@ import React from "react";
 
 class ResultTable extends React.Component {
   render() {
+    console.log("data", this.props.data)
+
+    const { data } = this.props
     return (
       <div className="resultTable">
         <table>
           <thead>
             <tr>
-              <th>通し番号</th>
+              <th>フィールド1</th>
+              <th>フィールド2</th>
+              <th>フィールド3</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td>{data.field1}</td>
+              <td>{data.field2}</td>
+              <td>{data.field3}</td>
             </tr>
           </tbody>
         </table>

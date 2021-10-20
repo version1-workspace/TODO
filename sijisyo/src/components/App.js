@@ -10,23 +10,26 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      index: 0,
       input: [],
     };
   }
   render() {
+    const { index, input } = this.state
+
     return (
       <div>
-        <InputForm inputArray={this.handleChange} />
-
-        <MiddleTable inputArray={this.state.input} />
-
-        <ResultTable />
+        <InputForm form={input[index] || {}} onChange={this.handleChange} />
+        <ResultTable data={input[0]}/>
       </div>
     );
   }
 
-  handleChange = (array) => {
-    this.setState({ input: array });
+  handleChange = (form) => {
+    const { input } = this.state
+    const newInput = [form]
+
+    this.setState({ input: newInput });
   };
 }
 
