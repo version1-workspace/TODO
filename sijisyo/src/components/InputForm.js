@@ -1,4 +1,26 @@
 import React from "react";
+import Field from "./Field";
+
+
+const fieldList = [
+  {
+    label: 'フィールド1',
+    key: 'field1'
+  },
+  {
+    label: 'フィールド2',
+    key: 'field2'
+  },
+  {
+    label: 'フィールド3',
+    key: 'field3'
+  },
+  {
+    label: 'フィールド4',
+    key: 'field4'
+  },
+]
+
 
 class InputForm extends React.Component {
   render() {
@@ -8,63 +30,21 @@ class InputForm extends React.Component {
       <div className="inputForm">
         <table>
           <tbody>
-            <tr>
-              <th>フィールド1</th>
-              <td>
-                <input
-                  type="text"
-                  value={form.field1}
-                  onChange={(event) => {
+            {
+              fieldList.map((item) => {
+                return <Field
+                  label={item.label}
+                  value={form[item.key]}
+                  onChange={(value) => {
                     const newForm = {
                       ...form,
-                      field1: event.target.value
+                      [item.key]: value
                     }
                     this.props.onChange(newForm)
                   }}
                 />
-              </td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <th>フィールド2</th>
-              <td>
-                <input
-                  type="text"
-                  value={form.field2}
-                  onChange={(event) => {
-                    const newForm = {
-                      ...form,
-                      field2: event.target.value
-                    }
-                    this.props.onChange(newForm)
-                  }}
-                />
-              </td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
-            <tr>
-              <th>フィールド3</th>
-              <td>
-                <input
-                  type="text"
-                  value={form.field3}
-                  onChange={(event) => {
-                    const newForm = {
-                      ...form,
-                      field3: event.target.value
-                    }
-                    this.props.onChange(newForm)
-                  }}
-                />
-              </td>
-              <td>
-                <input type="checkbox" />
-              </td>
-            </tr>
+              })
+            }
           </tbody>
         </table>
       </div>
